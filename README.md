@@ -1,3 +1,7 @@
+Original Repository: https://github.com/biplob1ly/TransICD
+
+
+
 # TransICD: Transformer Based Code-wise Attention Model for Explainable ICD Coding
 
 This repository contains the official PyTorch implementation of the following paper:
