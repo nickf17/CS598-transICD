@@ -11,6 +11,8 @@ Original Repository: https://github.com/biplob1ly/TransICD
 
 Changes:
 preprocessor.py line 230: change "size" input to word2vec to "vector_size"
+
+
 --------------------------------------------------------------------------------
 
 
