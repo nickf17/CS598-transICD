@@ -4,8 +4,9 @@ Original Repository: https://github.com/biplob1ly/TransICD
 1. Download and extract MIMIC-III data
 2. Place the following files in the "mimicdata" folder: NOTEEVENTS.csv, DIAGNOSES_ICD.csv, PROCEDURES_ICD.csv, D_ICD_DIAGNOSES.csv, D_ICD_PROCEDURES.csv
 3. Install the following dependencies: torch, numpy, tensorboard, sklearn, pandas, nltk, IPython
-4. Download the stopwords corpus from NLTK:
-        python -m nltk.downloader stopwords
+4. Download the stopwords corpus from NLTK: python -m nltk.downloader stopwords
+5. Run the data preprocessor: python preprocessor.py
+6. Train the model: python main.py
 --------------------------------------------------------------------------------
 
 
