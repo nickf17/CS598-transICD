@@ -7,6 +7,10 @@ Original Repository: https://github.com/biplob1ly/TransICD
 4. Download the stopwords corpus from NLTK: python -m nltk.downloader stopwords
 5. Run the data preprocessor: python preprocessor.py
 6. Train the model: python main.py
+
+
+Changes:
+preprocessor.py line 230: change "size" input to word2vec to "vector_size"
 --------------------------------------------------------------------------------
 
 
