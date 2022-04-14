@@ -10,7 +10,8 @@ Original Repository: https://github.com/biplob1ly/TransICD
 
 
 Changes:
-1. preprocessor.py line 230: change "size" input to word2vec to "vector_size"
+1. preprocessor.py line 230: change "size" input to word2vec to "vector_size":
+2. preprocessor.py line 244: change index2word to index_to_key: embed_size = len(wv.word_vec(wv.index2word[0])) -> embed_size = len(wv.word_vec(wv.index_to_key[0]))
 
 
 --------------------------------------------------------------------------------
