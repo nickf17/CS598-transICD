@@ -1,5 +1,6 @@
 Original Repository: https://github.com/biplob1ly/TransICD
 
+# Instructions to reproduce results:
 --------------------------------------------------------------------------------
 1. Download and extract MIMIC-III data
 2. Place the following files in the "mimicdata" folder: NOTEEVENTS.csv, DIAGNOSES_ICD.csv, PROCEDURES_ICD.csv, D_ICD_DIAGNOSES.csv, D_ICD_PROCEDURES.csv
