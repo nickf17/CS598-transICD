@@ -63,7 +63,7 @@ def get_args():
     parser.add_argument(
         '--batch_size',
         type=int,
-        default=8,
+        default=4,
         help='Batch size. Must divide evenly into the dataset sizes.'
     )
 

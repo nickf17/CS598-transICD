@@ -57,6 +57,7 @@ if __name__ == "__main__":
     logging.info(f'{args}\n')
     use_cuda = torch.cuda.is_available()
     device = torch.device("cuda" if use_cuda else "cpu")
+    print(device)
     random.seed(args.random_seed)
     np.random.seed(args.random_seed)
     torch.manual_seed(args.random_seed)

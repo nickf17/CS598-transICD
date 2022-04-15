@@ -9,6 +9,7 @@ from torch.utils.data import DataLoader
 
 
 def train(model, train_set, dev_set, test_set, hyper_params, batch_size, device):
+    print(batch_size)
     train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True, num_workers=1)
     m = RunManager()
     optimizer = optim.AdamW(model.parameters(), lr=hyper_params.learning_rate)
