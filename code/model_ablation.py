@@ -74,8 +74,7 @@ class PositionalEncoding(nn.Module):
         self.register_buffer('pe', pe)
 
     def forward(self, x):
-        print(x.shape, self.pe[:x.size(0), :].shape)
-        raise NotImplementedError
+        # print(x.shape, self.pe[:x.size(0), :].shape)
         x = x + self.pe[:x.size(0), :].to(x.device)
         return self.dropout(x)
 
@@ -147,7 +146,7 @@ class TransICD(nn.Module):
         self.encoder = TransformerEncoder(encoder_layers, num_layers)
         self.attn = Attention(embed_size, output_size, attn_expansion, dropout_rate)
         # self.label_attn = LabelAttention(embed_size, embed_size, dropout_rate)
-        self.fcs = nn.ModuleList([nn.Linear(embed_size, 1) for code in range(output_size)])
+        self.fcs = nn.ModuleList([nn.Linear(500, 1) for code in range(output_size)])
 
     def embed_label_desc(self):
         label_embeds = self.embedder(self.label_desc).transpose(1, 2).matmul(self.label_desc_mask.unsqueeze(2))
@@ -164,20 +163,30 @@ class TransICD(nn.Module):
         embeds = embeds.permute(1, 0, 2)  # S x N x E
 
         encoded_inputs = self.encoder(embeds, src_key_padding_mask=src_key_padding_mask)  # T x N x E
-        encoded_inputs = encoded_inputs.permute(1, 0, 2)  # N x T x E
+        encoded_inputs = encoded_inputs.permute(1, 0, 2)  # N x T x E  torch.Size([4, 2500, 128])
+        
+        aggregated_codes = encoded_inputs.permute(0, 2, 1)  # N x E x T  torch.Size([4, 128, 2500])
+        aggregated_codes = torch.max_pool1d(aggregated_codes, kernel_size=5, stride=5)
+        # aggregated_codes = aggregated_codes.permute(0, 2, 1) # torch.Size([4, 500, 128]) (original torch.Size([4, 2500, 128]))
 
         # encoded_inputs is of shape: batch_size, seq_len, embed_size
-        weighted_outputs, attn_weights = self.attn(encoded_inputs, attn_mask)
+        weighted_outputs, attn_weights = self.attn(encoded_inputs, attn_mask) # torch.Size([4, 50, 128])
+        
+        biaffine_weighted_outputs = torch.matmul(weighted_outputs, aggregated_codes) # torch.Size([4, 50, 500])
+
         # label_embeds = self.embed_label_desc()
         # weighted_outputs, attn_weights = self.label_attn(encoded_inputs, label_embeds, attn_mask)
 
-        outputs = torch.zeros((weighted_outputs.size(0), self.output_size)).to(self.device)
+        outputs = torch.zeros((biaffine_weighted_outputs.size(0), self.output_size)).to(self.device)
         for code, fc in enumerate(self.fcs):
-            outputs[:, code:code+1] = fc(weighted_outputs[:, code, :])
+            outputs[:, code:code+1] = fc(biaffine_weighted_outputs[:, code, :])
+
 
         if targets is not None and self.class_margin is not None and self.C > 0:
             ldam_outputs = outputs - targets * self.class_margin * self.C
         else:
             ldam_outputs = None
+
+        # ldam_outputs = None
 
         return outputs, ldam_outputs, attn_weights

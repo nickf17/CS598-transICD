@@ -47,7 +47,7 @@ def get_args():
     parser.add_argument(
         '--num_epoch',
         type=int,
-        default=[30, 35, 40],
+        default=[30],
         nargs='+',
         help='Number of epochs to train.'
     )
@@ -63,7 +63,7 @@ def get_args():
     parser.add_argument(
         '--batch_size',
         type=int,
-        default=4,
+        default=8,
         help='Batch size. Must divide evenly into the dataset sizes.'
     )
 

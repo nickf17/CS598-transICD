@@ -1,3 +1,13 @@
 __pycache__/
 .idea/
 .ipynb_checkpoints/
+mimicdata/PROCEDURES_ICD.csv
+mimicdata/NOTEEVENTS.csv
+mimicdata/DIAGNOSES_ICD.csv
+mimicdata/D_ICD_PROCEDURES.csv
+mimicdata/D_ICD_DIAGNOSES.csv
+mimicdata/generated/*
+!mimicdata/generated/README.md
+results/Ablation/test_attn_weights_learning_rate_0.001_num_epoch_30.txt
+results/Transformer_Attention/test_attn_weights_learning_rate_0.001_num_epoch_30.txt
+results/TransICD/test_attn_weights_learning_rate_0.001_num_epoch_30.txt

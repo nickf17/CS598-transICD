@@ -99,6 +99,7 @@ def load_embedding_weights():
             # vec = vec / float(np.linalg.norm(vec) + 1e-6)
             W.append(vec)
     logging.info(f'Total token count (including PAD, UNK) of full preprocessed discharge summaries: {len(W)}')
+    W = np.array(W)
     weights = torch.tensor(W, dtype=torch.float)
     return weights
 

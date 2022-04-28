@@ -6,7 +6,9 @@ Original Repository: https://github.com/biplob1ly/TransICD
 3. Install the following dependencies: torch, numpy, tensorboard, sklearn, pandas, nltk, IPython, gensim
 4. Download the stopwords corpus from NLTK: python -m nltk.downloader stopwords
 5. Run the data preprocessor: python preprocessor.py
-6. Train the model: python main.py
+6. Train the model: 
+    - python main.py --model TransICD --batch_size 4
+    - python main.py --model Transformer --batch_size 4
 
 
 Changes to prevent errors:

@@ -1,0 +1,79 @@
+2022-04-27 12:11:01,891 Namespace(batch_size=4, data_setting='50', dropout_rate=0.1, embed_size=128, freeze_embed=True, label_attn_expansion=2, learning_rate=[0.001], log='INFO', max_len=2500, model='TransICD', num_attn_heads=8, num_epoch=[30], num_trans_layers=2, random_seed=271, trans_forward_expansion=4)
+
+2022-04-27 12:11:02,266 train set length stats:
+count    8066.000000
+mean      921.500248
+std       483.252560
+min        54.000000
+25%       578.000000
+50%       840.000000
+75%      1158.750000
+max      5303.000000
+Name: LENGTH, dtype: float64
+2022-04-27 12:11:02,274 In train set, average code counts per discharge summary: 5.691296801388544
+2022-04-27 12:11:02,284 Final number of labels/codes: 50
+2022-04-27 12:11:02,298 train set true item count: 8064
+
+
+2022-04-27 12:11:02,394 dev set length stats:
+count    1573.000000
+mean     1114.560712
+std       471.017010
+min       148.000000
+25%       796.000000
+50%      1040.000000
+75%      1326.000000
+max      3924.000000
+Name: LENGTH, dtype: float64
+2022-04-27 12:11:02,398 In dev set, average code counts per discharge summary: 5.881118881118881
+2022-04-27 12:11:02,400 Final number of labels/codes: 50
+2022-04-27 12:11:02,408 dev set true item count: 1572
+
+
+2022-04-27 12:11:02,516 test set length stats:
+count    1729.000000
+mean     1132.429150
+std       468.074764
+min       127.000000
+25%       810.000000
+50%      1055.000000
+75%      1358.000000
+max      4001.000000
+Name: LENGTH, dtype: float64
+2022-04-27 12:11:02,518 In test set, average code counts per discharge summary: 6.039329091960671
+2022-04-27 12:11:02,521 Final number of labels/codes: 50
+2022-04-27 12:11:02,531 test set true item count: 1728
+
+
+2022-04-27 12:11:02,598 Size of training vocabulary including PAD, UNK: 123918
+2022-04-27 12:11:05,328 train dataset has on average 0.0018979848923695332 oov words per discharge summary
+2022-04-27 12:11:06,055 dev dataset has on average 0.0043540212232293036 oov words per discharge summary
+2022-04-27 12:11:06,845 test dataset has on average 0.004234441238066067 oov words per discharge summary
+2022-04-27 12:11:06,851 Taining labels are: ['038.9', '244.9', '250.00', '272.0', '272.4', '276.1', '276.2', '285.1', '285.9', '287.5', '305.1', '311', '33.24', '36.15', '37.22', '38.91', '38.93', '39.61', '39.95', '401.9', '403.90', '410.71', '412', '414.01', '424.0', '427.31', '428.0', '45.13', '486', '496', '507.0', '511.9', '518.81', '530.81', '584.9', '585.9', '599.0', '88.56', '88.72', '93.90', '96.04', '96.6', '96.71', '96.72', '99.04', '99.15', '995.92', 'V15.82', 'V45.81', 'V58.61']
+
+2022-04-27 12:11:14,972 Total token count (including PAD, UNK) of full preprocessed discharge summaries: 123918
+2022-04-27 12:11:15,158 Training with: HyperParams(learning_rate=0.001, num_epoch=30)
+2022-04-27 12:11:15,158 Training Started...
+2022-04-27 14:42:29,220 Training finished.
+
+2022-04-27 14:43:52,696 train Accuracy: 0.07713293650793651
+2022-04-27 14:43:52,696 train f1 score (micro): 0.6605613499533621
+2022-04-27 14:43:52,696 train f1 score (macro): 0.5585087232823461
+2022-04-27 14:43:52,696 train auc score (micro): 0.9488067770442443
+2022-04-27 14:43:52,696 train auc score (macro): 0.9317319957600424
+2022-04-27 14:43:52,697 train precision at ks [1, 5, 8, 10, 15]: [0.8664434523809523, 0.6408234126984127, 0.5180276537698413, 0.45338541666666665, 0.3416335978835979]
+
+2022-04-27 14:44:10,921 dev Accuracy: 0.06297709923664122
+2022-04-27 14:44:10,921 dev f1 score (micro): 0.6231683048905505
+2022-04-27 14:44:10,921 dev f1 score (macro): 0.5185630124654932
+2022-04-27 14:44:10,921 dev auc score (micro): 0.9247966124084549
+2022-04-27 14:44:10,921 dev auc score (macro): 0.8948686613585478
+2022-04-27 14:44:10,921 dev precision at ks [1, 5, 8, 10, 15]: [0.8358778625954199, 0.6101781170483461, 0.4952290076335878, 0.43778625954198475, 0.33524173027989823]
+
+2022-04-27 14:44:36,141 test Accuracy: 0.05960648148148148
+2022-04-27 14:44:36,142 test f1 score (micro): 0.6198457036445862
+2022-04-27 14:44:36,142 test f1 score (macro): 0.5111050965797864
+2022-04-27 14:44:36,142 test auc score (micro): 0.9236260134644725
+2022-04-27 14:44:36,142 test auc score (macro): 0.8950998077941975
+2022-04-27 14:44:36,142 test precision at ks [1, 5, 8, 10, 15]: [0.8373842592592593, 0.6136574074074074, 0.5016637731481481, 0.44502314814814814, 0.3411651234567901]
+
