@@ -11,3 +11,17 @@ mimicdata/generated/*
 results/Ablation/test_attn_weights_learning_rate_0.001_num_epoch_30.txt
 results/Transformer_Attention/test_attn_weights_learning_rate_0.001_num_epoch_30.txt
 results/TransICD/test_attn_weights_learning_rate_0.001_num_epoch_30.txt
+baselines/dataproc/constants.py
+baselines/dataproc/datasets.py
+baselines/dataproc/evaluation.py
+baselines/dataproc/persistence.py
+baselines/learn/constants.py
+baselines/learn/datasets.py
+baselines/learn/evaluation.py
+baselines/learn/persistence.py
+baselines/learn/extract_wvs.py
+baselines/mimicdata/mimic3/*
+!baselines/mimicdata/mimic3/README.md
+baselines/mimicdata/D_ICD_DIAGNOSES.csv
+baselines/mimicdata/D_ICD_PROCEDURES.csv
+*.psv

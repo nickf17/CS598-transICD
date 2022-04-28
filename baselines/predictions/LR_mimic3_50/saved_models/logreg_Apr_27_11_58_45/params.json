@@ -1,0 +1,18 @@
+{
+ "Y": "50",
+ "filter_size": 4,
+ "dropout": 0.5,
+ "num_filter_maps": 50,
+ "rnn_dim": 128,
+ "cell_type": "gru",
+ "rnn_layers": 1,
+ "lmbda": 0,
+ "command": "python ../../learn/training.py ../../mimicdata/mimic3/train_50.csv ../../mimicdata/mimic3/vocab.csv 50 logreg 100 --pool avg --embed-file ../../mimicdata/mimic3/processed_full.embed --gpu",
+ "weight_decay": 0,
+ "version": "mimic3",
+ "data_path": "../../mimicdata/mimic3/train_50.csv",
+ "vocab": "../../mimicdata/mimic3/vocab.csv",
+ "embed_file": "../../mimicdata/mimic3/processed_full.embed",
+ "lr": 0.001,
+ "model_dir": "C:\\Users\\nfont\\Desktop\\caml-mimic-master\\predictions\\LR_mimic3_50\\saved_models\\logreg_Apr_27_11_58_45"
+}
