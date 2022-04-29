@@ -33,17 +33,13 @@ Original code: https://github.com/jamesmullenbach/caml-mimic
 5. Modify constants.py: set DATA_DIR='../mimicdata' and MIMIC_3_DIR='../mimicdata/mimic3'
 6. Perform data preprocessing: run all cells in notebooks/dataproc_mimic_III.ipynb
 7. Train a new model:
-    -Logistic Regression: 
-        in predictions/LR_mimic3_50:
+-Logistic Regression (predictions/LR_mimic3_50): 
 ```python ../../learn/training.py ../../mimicdata/mimic3/train_50.csv ../../mimicdata/mimic3/vocab.csv 50 logreg 100 --pool avg --embed-file ../../mimicdata/mimic3/processed_full.embed --gpu```
-    -Bidirectional GRU:
-        in predictions/GRU_mimic3_50:
+-Bidirectional GRU (predictions/GRU_mimic3_50):
 ```python ../../learn/training.py ../../mimicdata/mimic3/train_50.csv ../../mimicdata/mimic3/vocab.csv 50 rnn 200 --cell-type gru --rnn-dim 512 --bidirectional True --lr 0.003 --embed-file ../../mimicdata/mimic3/processed_full.embed --gpu```
-    -CNN:
-        in predictions/CNN_mimic3_50:
+-CNN (predictions/CNN_mimic3_50):
 ```python ../../learn/training.py ../../mimicdata/mimic3/train_50.csv ../../mimicdata/mimic3/vocab.csv 50 cnn_vanilla 100 --filter-size 4 --num-filter-maps 500 --dropout 0.2 --lr 0.003 --embed-file ../../mimicdata/mimic3/processed_full.embed --gpu```
-    -CAML:
-        in predictions/caml_mimic3_50:
+-CAML (predictions/caml_mimic3_50):
 ```python ../../learn/training.py ../../mimicdata/mimic3/train_50.csv ../../mimicdata/mimic3/vocab.csv 50 conv_attn 200 --filter-size 10 --num-filter-maps 50 --dropout 0.2 --patience 10 --criterion prec_at_8 --lr 0.0001 --embed-file ../../mimicdata/mimic3/processed_full.embed --gpu```
 
 Changes to prevent errors:
