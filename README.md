@@ -25,6 +25,8 @@ Changes to prevent errors:
 --------------------------------------------------------------------------------
 # Instructions to reproduce baselines (LR, Bi-GRU, CNN, CAML):
 Original code: https://github.com/jamesmullenbach/caml-mimic
+
+
 *all instructions are with respect to the "/baselines/" folder
 1. Download and extract MIMIC-III data
 2. Place the following files in the "mimicdata" folder: D_ICD_DIAGNOSES.csv, D_ICD_PROCEDURES.csv
@@ -71,6 +73,10 @@ Changes to prevent errors:
 9. models.py line 128: change x = F.avg_pool1d(x) to x = torch.mean(x, 1)
 10. models.py line 131: change "diffs" input of self._get_loss to "desc_data"
 11. models.py line 132: change return value "yhat" to "logits"
+--------------------------------------------------------------------------------
+
+
+# Reproduced Results:
 
 
 ```
