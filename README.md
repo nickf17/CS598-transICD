@@ -36,19 +36,28 @@ Original code: https://github.com/jamesmullenbach/caml-mimic
 
 
 -Logistic Regression (predictions/LR_mimic3_50):
+
+
 ```python ../../learn/training.py ../../mimicdata/mimic3/train_50.csv ../../mimicdata/mimic3/vocab.csv 50 logreg 100 --pool avg --embed-file ../../mimicdata/mimic3/processed_full.embed --gpu```
 
 
 -Bidirectional GRU (predictions/GRU_mimic3_50):
+
+
 ```python ../../learn/training.py ../../mimicdata/mimic3/train_50.csv ../../mimicdata/mimic3/vocab.csv 50 rnn 200 --cell-type gru --rnn-dim 512 --bidirectional True --lr 0.003 --embed-file ../../mimicdata/mimic3/processed_full.embed --gpu```
 
 
 -CNN (predictions/CNN_mimic3_50):
+
+
 ```python ../../learn/training.py ../../mimicdata/mimic3/train_50.csv ../../mimicdata/mimic3/vocab.csv 50 cnn_vanilla 100 --filter-size 4 --num-filter-maps 500 --dropout 0.2 --lr 0.003 --embed-file ../../mimicdata/mimic3/processed_full.embed --gpu```
 
 
 -CAML (predictions/caml_mimic3_50):
+
+
 ```python ../../learn/training.py ../../mimicdata/mimic3/train_50.csv ../../mimicdata/mimic3/vocab.csv 50 conv_attn 200 --filter-size 10 --num-filter-maps 50 --dropout 0.2 --patience 10 --criterion prec_at_8 --lr 0.0001 --embed-file ../../mimicdata/mimic3/processed_full.embed --gpu```
+
 
 Changes to prevent errors:
 1. word_embeddings.py line 25: change "size" input of word2vec to "vector_size"
